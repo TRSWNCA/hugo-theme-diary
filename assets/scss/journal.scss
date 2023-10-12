@@ -1,4 +1,4 @@
-$color-accent: #1976d2;
+$color-accent: #9f563a;
 //$color-accent: #330000;
 $back-container-background: #fcfcfc;
 $front-container-background: #ffffff;
@@ -11,19 +11,19 @@ $mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
 //$sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro", "Helvetica", $default-font-list;
 $sans-preferred-font-list: $default-font-list;
 
-$side-container-width: 25%; //280px;
-$extra-container-width: 25%;
+$side-container-width: 20%; //280px;
+$extra-container-width: 20%;
 $extra-container-pagination-width: 64px;
 $stream-container-max-width: 1620px;
 
 $nav-title-size: 35px;
 $nav-subtitle-size: 18px;
 $nav-link-size: 20px;
-$nav-footer-size: 12px;
+$nav-footer-size: 14px;
 $post-title-size: 28px;
 $post-subtitle-size: 14px;
-$post-summary-size: 16px;
-$post-body-size: 16px;
+$post-summary-size: 18px;
+$post-body-size: 18px;
 $post-meta-size: 16px;
 $tag-category-title-size: 22px;
 $toc-size: 16px;
@@ -188,6 +188,7 @@ a {
 
 .a-block {
   display: block;
+  color: black;
   text-decoration: none !important;
   &:hover {
     text-decoration: none !important;
@@ -474,10 +475,11 @@ a {
     }
   }
   .nav-link-list {
-    flex-grow: 1;
+    // flex-grow: 1;
+    margin-top: auto;
     .nav-link-item {
       font-size: $nav-link-size;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
       border-right: 2px solid transparent;
       padding: 8px 28px 8px 30px;
       cursor: hand;
@@ -509,6 +511,11 @@ a {
   .nav-footer {
     padding: 20px 30px 0 20px;
     font-size: $nav-footer-size;
+
+    li {
+      list-style: none;
+      text-align: right;
+    }
   }
   @media screen and (max-width: $single-column-max-width) {
     display: none;
@@ -626,8 +633,8 @@ a {
     &,
     > * {
       .post-item-wrapper {
-        cursor: hand;
-        cursor: pointer;
+        // cursor: hand;
+        // cursor: pointer;
         .post-item {
           margin: 0 28px 0 35px;
           padding: 30px 0;
@@ -655,7 +662,8 @@ a {
               font-style: normal;
               margin-bottom: 10px;
               line-height: 1.5em;
-              
+              text-align: center;
+
               @media screen and (max-width: $single-column-max-width) {
                 font-size: $single-column-post-title-size;
                 margin-bottom: 5px;
@@ -684,6 +692,25 @@ a {
             }
             .post-item-meta {
               font-size: $post-meta-size;
+              text-align: center;
+              margin-top: -0.5em;
+              padding: 0;
+              * {
+                color: #999;
+              }
+
+              li:first-child{
+                margin-left: 0;
+                padding-left: 0;
+                border: none;
+              }
+
+              li {
+                display: inline-block;
+                margin: 0 8px 0 0;
+                padding-left: 12px;
+                border-left: 1px solid #EEE;
+              }
 
               @media screen and (max-width: $single-column-max-width) {
                 font-size: $single-column-post-meta-size;
@@ -726,24 +753,24 @@ a {
         // * {
         //   transition: all 0.2s linear;
         // }
-        &:not(.post-item-wrapper-no-hover):hover {
-          text-decoration: none;
-          background: rgba(0, 0, 0, 0.03);
-          .post-item-title {
-            text-decoration: underline;
-            text-decoration-style: 0.5px solid $color-accent;
-            text-underline-position: under;
-          }
-          * {
-            color: $dark-accent;
-          }
+        // &:not(.post-item-wrapper-no-hover):hover {
+        //   text-decoration: none;
+        //   // background: rgba(0, 0, 0, 0.03);
+        //   .post-item-title {
+        //     text-decoration: underline;
+        //     text-decoration-style: 0.5px solid $color-accent;
+        //     text-underline-position: under;
+        //   }
+        //   * {
+        //     color: $dark-accent;
+        //   }
 
-          @media screen and (max-width: $single-column-max-width) {
-            .post-item-title {
-              text-decoration: none !important;
-            }
-          }
-        }
+        //   @media screen and (max-width: $single-column-max-width) {
+        //     .post-item-title {
+        //       text-decoration: none !important;
+        //     }
+        //   }
+        // }
       }
 
       .post-item-wrapper-no-hover {
@@ -958,6 +985,22 @@ a {
   }
 }
 
+.post-readmore {
+  line-height: 1.5;
+  display: inline-block;
+  letter-spacing: 2px;
+  color: #999;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $color-accent;
+    text-decoration: none;
+    border: 1px solid #999;
+  }
+}
+
 #single-column-footer {
   display: none;
 
@@ -1112,4 +1155,10 @@ mjx-container {
   .tag {
     margin: 10px;
   }
+}
+
+.hljs {
+	padding: 10px;
+	background: #fafafa !important;
+	font-family: "Fira Mono","Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro",monospace !important;
 }

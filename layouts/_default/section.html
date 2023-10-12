@@ -6,7 +6,7 @@
                 <div class="post-item-wrapper post-item-wrapper-no-hover">
                     <div class="post-item post-item-no-gaps">
                         <div class="post-item-info-wrapper">
-                            <div class="post-item-title post-item-title-small year">
+                            <div class="post-item-title post-item-title-small year" style="text-align: left;">
                                 {{ .Key }}
                             </div>
                         </div>
@@ -14,18 +14,28 @@
                 </div>
             </a>
             {{ range .Pages }}
-            <a href="{{ .RelPermalink }}" class="a-block">
+            
                 <div class="post-item-wrapper">
                     <div class="post-item post-item-no-gaps">
                         <div class="post-item-info-wrapper">
-                            <div class="post-item-title">
-                                {{.Title}}
+                            <div class="post-item-title" style="text-align: left;">
+                                <a href="{{ .RelPermalink }}" class="a-block">{{.Title}}</a>
                             </div>
-                            {{ partial "post-item-meta.html" . }}
+                            <ul class="post-item-meta" style="text-align: left;  margin-left: auto;">
+                                <li> {{ i18n "format_date" .PublishDate }}</li>
+                                <li> <a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a> </li>
+                                <li>
+                                    {{ if gt .Params.tags 0 }}
+                                    {{ range .Params.tags }}
+                                       <i class="material-icons" style="font-size: 14px; padding-right: 2px;">label</i><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                    {{ end }}
+                                {{ end }}
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </a>
             {{ end }}
         {{ end }}
     </div>

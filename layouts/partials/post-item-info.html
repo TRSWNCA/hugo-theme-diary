@@ -1,0 +1,30 @@
+<div class="post-item-wrapper">
+    <div class="post-item post-item-no-gaps">
+        <div class="post-item-info-wrapper">
+    
+            {{ .Title }}
+
+            <div style="">
+                {{ if .Params.date}}
+                <time itemprop="datePublished">
+                    {{ i18n "format_date_tosec" .PublishDate }}
+                </time>
+                {{ end }}
+
+                {{ if .Params.categories }}
+                    <i class="material-icons" style="">folder</i>
+                        <a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+                        &nbsp;
+                {{ end }}
+
+                {{ if gt .Params.tags 0 }}
+                    <i class="material-icons" style="">label</i>
+                    {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                        &nbsp;
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
