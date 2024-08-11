@@ -68,7 +68,8 @@
                 {{ else }}
                 <div class="post-body" v-pre>
                 {{ end }}
-                    {{.Content}}
+                    <!-- {{.Content}} -->
+                    {{- partial "partials/obsidian.html" (dict "content" .Content "pageRelLink" .Page.RelPermalink) -}}
                     {{ if not .Lastmod.IsZero }}
                     <HR width="100%" id="EOF">
 		    <p style="color:#777;">{{ i18n "last_mod_on" .Page.Lastmod }}</p>

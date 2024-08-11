@@ -16,7 +16,7 @@
                                 {{ if .Description }}
                                     {{ .Description }}
                                 {{ else }}
-                                    {{ .Summary }}
+                                    {{- partial "partials/obsidian.html" (dict "content" .Summary "pageRelLink" .) -}}
                                 {{ end }}
                             </div>
                             <div style="text-align: center;">

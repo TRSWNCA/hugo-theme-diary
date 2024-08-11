@@ -1,0 +1,22 @@
+{{- define "partials/obsidian.html" -}}
+  {{- $content := .content -}}
+  {{- $pageRelLink := .pageRelLink -}}
+  {{- $regexCallout := `<blockquote>\n<p>\[!(.+)\](-?) ?(.+)?\<` -}}
+  {{- $callouts := $content | findRE $regexCallout -}}
+  {{- /* Convert Callouts */ -}}
+  {{- range $callouts -}}
+    {{- $callout := findRESubmatch $regexCallout . -}}
+
+    {{- $type := index $callout 0 1 -}}
+    {{- $isFold := index $callout 0 2 -}}
+    {{- $title := index $callout 0 3 -}}
+    {{- if eq $title "" -}}
+      {{- $content = replaceRE $regexCallout `<blockquote class="callout" data-callout="$1" callout-fold="$2"><p><div class="title">$1</div><` $content 1 -}}
+    {{- else -}}
+      {{- $content = replaceRE $regexCallout `<blockquote class="callout" data-callout="$1" callout-fold="$2"><p><div class="title">$3</div><` $content 1 -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Output content */ -}}
+  {{- $content | safeHTML -}}
+{{- end -}}
