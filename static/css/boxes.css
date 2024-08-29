@@ -1,83 +1,252 @@
+ body {
+    /* Layout sizing - for padding and margins */
+    --size-2-1: 2px;
+    --size-2-2: 4px;
+    --size-2-3: 6px;
+    --size-4-1: 4px;
+    --size-4-2: 8px;
+    --size-4-3: 12px;
+    --size-4-4: 16px;
+    --size-4-5: 20px;
+    --size-4-6: 24px;
+    --size-4-8: 32px;
+    --size-4-9: 36px;
+    --size-4-10: 40px;
+    --size-4-12: 48px;
+    --size-4-16: 64px;
+    --size-4-18: 72px;
+  /* Colors */
+  --color-red-rgb: 233, 49, 71;
+  --color-red: #e93147;
+  --color-orange-rgb: 236, 117, 0;
+  --color-orange: #ec7500;
+  --color-yellow-rgb: 224, 172, 0;
+  --color-yellow: #e0ac00;
+  --color-green-rgb: 8, 185, 78;
+  --color-green: #08b94e;
+  --color-cyan-rgb: 0, 191, 188;
+  --color-cyan: #00bfbc;
+  --color-blue-rgb: 8, 109, 221;
+  --color-blue: #086ddd;
+  --color-purple-rgb: 120, 82, 238;
+  --color-purple: #7852ee;
+  --color-pink-rgb: 213, 57, 132;
+  --color-pink: #d53984;
+  --color-base-00: #ffffff;
+  --color-base-05: #fcfcfc;
+  --color-base-10: #fafafa;
+  --color-base-20: #f6f6f6;
+  --color-base-25: #e3e3e3;
+  --color-base-30: #e0e0e0;
+  --color-base-35: #d4d4d4;
+  --color-base-40: #bdbdbd;
+  --color-base-50: #ababab;
+  --color-base-60: #707070;
+  --color-base-70: #5c5c5c;
+  --color-base-100: #222222;
+  --color-accent-hsl: var(--accent-h),
+			var(--accent-s),
+			var(--accent-l);
+  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --color-accent-1: hsl(calc(var(--accent-h) - 1), calc(var(--accent-s) * 1.01), calc(var(--accent-l) * 1.075));
+  --color-accent-2: hsl(calc(var(--accent-h) - 3), calc(var(--accent-s) * 1.02), calc(var(--accent-l) * 1.15));
+  /* Callouts */
+  --callout-border-width: 0px;
+  --callout-border-opacity: 0.25;
+  --callout-padding: var(--size-4-3) var(--size-4-3) var(--size-4-3) var(--size-4-6);
+  --callout-radius: var(--radius-s);
+  --callout-blend-mode: var(--highlight-mix-blend-mode);
+  --callout-title-color: inherit;
+  --callout-title-padding: 0;
+  --callout-title-size: inherit;
+  --callout-title-weight: calc(var(--font-weight) + var(--bold-modifier));
+  --callout-content-padding: 0;
+  --callout-content-background: transparent;
+  --callout-bug: var(--color-red-rgb);
+  --callout-default: var(--color-blue-rgb);
+  --callout-error: var(--color-red-rgb);
+  --callout-example: var(--color-purple-rgb);
+  --callout-fail: var(--color-red-rgb);
+  --callout-important: var(--color-cyan-rgb);
+  --callout-info: var(--color-blue-rgb);
+  --callout-question: var(--color-orange-rgb);
+  --callout-success: var(--color-green-rgb);
+  --callout-summary: var(--color-cyan-rgb);
+  --callout-tip: var(--color-cyan-rgb);
+  --callout-todo: var(--color-blue-rgb);
+  --callout-warning: var(--color-orange-rgb);
+  --callout-quote: 158, 158, 158;
+  /* Icons */
+  --lucide-pencil: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(8, 109, 221)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-pencil"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>');
+  --lucide-clipboard-list: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(0, 191, 188)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-clipboard-list"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path></svg>');
+  --lucide-info: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(8, 109, 221)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-info"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>');
+  --lucide-check-circle-2: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(8, 109, 221)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>');
+  --lucide-flame: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(0, 191, 188)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>');
+  --lucide-check: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(8, 185, 78)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-check"><path d="M20 6 9 17l-5-5"></path></svg>');
+  --help-circle: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(236, 117, 0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>');
+  --lucide-alert-triangle: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(236, 117, 0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-alert-triangle"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>');
+  --lucide-x: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(233, 49, 71)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>');
+  --lucide-zap: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(233, 49, 71)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>');
+  --lucide-bug: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(233, 49, 71)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-bug"><path d="m8 2 1.88 1.88"></path><path d="M14.12 3.88 16 2"></path><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"></path><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"></path><path d="M12 20v-9"></path><path d="M6.53 9C4.6 8.8 3 7.1 3 5"></path><path d="M6 13H2"></path><path d="M3 21c0-2.1 1.7-3.9 3.8-4"></path><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"></path><path d="M22 13h-4"></path><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"></path></svg>');
+  --lucide-list: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(120, 82, 238)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>');
+  --quote-glyph: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(158, 158, 158)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>');
+}
 
-@font-face {
-  font-family: "icons-boxes";
-  src: url("../fonts/icons-boxes.eot?bzmaom");
-  src: url("../fonts/icons-boxes.eot?bzmaom#iefix") format("embedded-opentype"),
-    url("../fonts/icons-boxes.ttf?bzmaom") format("truetype"),
-    url("../fonts/icons-boxes.woff?bzmaom") format("woff"),
-    url("../fonts/icons-boxes.svg?bzmaom#icomoon-notices") format("svg");
-  font-weight: normal;
+blockquote.callout {
+  --callout-color: var(--callout-default);
+  --callout-icon: var(--lucide-pencil);
+}
+blockquote.callout[data-callout="abstract"],
+blockquote.callout[data-callout="summary"],
+blockquote.callout[data-callout="tldr"] {
+  --callout-color: var(--callout-summary);
+  --callout-icon: var(--lucide-clipboard-list);
+}
+blockquote.callout[data-callout="info"] {
+  --callout-color: var(--callout-info);
+  --callout-icon: var(--lucide-info);
+}
+blockquote.callout[data-callout="todo"] {
+  --callout-color: var(--callout-todo);
+  --callout-icon: var(--lucide-check-circle-2);
+}
+blockquote.callout[data-callout="important"] {
+  --callout-color: var(--callout-important);
+  --callout-icon: var(--lucide-flame);
+}
+blockquote.callout[data-callout="tip"],
+blockquote.callout[data-callout="hint"] {
+  --callout-color: var(--callout-tip);
+  --callout-icon: var(--lucide-flame);
+}
+blockquote.callout[data-callout="success"],
+blockquote.callout[data-callout="check"],
+blockquote.callout[data-callout="done"] {
+  --callout-color: var(--callout-success);
+  --callout-icon: var(--lucide-check);
+}
+blockquote.callout[data-callout="question"],
+blockquote.callout[data-callout="help"],
+blockquote.callout[data-callout="faq"] {
+  --callout-color: var(--callout-question);
+  --callout-icon: var(--help-circle);
+}
+blockquote.callout[data-callout="warning"],
+blockquote.callout[data-callout="caution"],
+blockquote.callout[data-callout="attention"] {
+  --callout-color: var(--callout-warning);
+  --callout-icon: var(--lucide-alert-triangle);
+}
+blockquote.callout[data-callout="failure"],
+blockquote.callout[data-callout="fail"],
+blockquote.callout[data-callout="missing"] {
+  --callout-color: var(--callout-fail);
+  --callout-icon: var(--lucide-x);
+}
+blockquote.callout[data-callout="danger"],
+blockquote.callout[data-callout="error"] {
+  --callout-color: var(--callout-error);
+  --callout-icon: var(--lucide-zap);
+}
+blockquote.callout[data-callout="bug"] {
+  --callout-color: var(--callout-bug);
+  --callout-icon: var(--lucide-bug);
+}
+blockquote.callout[data-callout="example"] {
+  --callout-color: var(--callout-example);
+  --callout-icon: var(--lucide-list);
+}
+blockquote.callout[data-callout="quote"],
+blockquote.callout[data-callout="cite"] {
+  --callout-color: var(--callout-quote);
+  --callout-icon: var(--quote-glyph);
+}
+blockquote.callout {
+  overflow: hidden;
+  border-style: solid;
+  border-color: rgba(var(--callout-color), var(--callout-border-opacity));
+  border-width: var(--callout-border-width);
+  border-radius: var(--callout-radius);
+  margin: 1em 0;
+  mix-blend-mode: var(--callout-blend-mode);
+  background-color: rgba(var(--callout-color), 0.1);
+  padding: var(--callout-padding);
+  color: black;
+}
+
+blockquote.callout.is-collapsible blockquote.callout-title {
+  cursor: var(--cursor);
+}
+
+blockquote {
+  width: 100%;
+  margin: 1.2em 0;
+  padding: 12px 24px;
+  padding-bottom: 5px;
   font-style: normal;
-  font-display: block;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+  font-size: 1em;
+  border-left: none !important;
+  border-radius: 0.4rem;
+  &::before {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    color: rgb(var(--callout-color));
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--callout-content-background);
+    position: absolute;
+  }
+
+  > .title {
+    padding: var(--callout-title-padding);
+    display: flex;
+    gap: var(--size-4-1);
+    font-size: var(--callout-title-size);
+    color: rgb(var(--callout-color));
+    line-height: 1.3;
+    align-items: flex-start;
+    &::before {
+      width: 20px;
+      margin-top: 3px;
+      padding-right: 25px;
+      content: var(--callout-icon);
+      color: rgb(var(--callout-color));
+    }
+  }
 }
 
-[class^="box"],
-[class*=" box"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icons-boxes" !important;
-  background-color: #fffeb4a3;
-
-  padding: 0.5em;
-  margin-top: 1em;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+blockquote.callout-content {
+  overflow-x: auto;
+  padding: var(--callout-content-padding);
+  background-color: var(--callout-content-background);
 }
 
-[class^="box"]::before {
-  padding-left: 0.4em;
-  padding-right: 0.8em;
+blockquote.callout-content blockquote.callout {
+  margin-top: 20px;
 }
 
-/* Add icons */
-
-.boxBell:before {
-  content: "\f0f3";
-  color: #9f6000;
+blockquote.callout-icon::after {
+  content: "\200B";
 }
-.boxCheck:before {
-  content: "\f058";
-  color: #4f8a10;
+blockquote.callout-title-inner {
+  --font-weight: var(--callout-title-weight);
+  font-weight: var(--font-weight);
+  color: var(--callout-title-color);
 }
-.boxComment:before {
-  content: "\f075";
+blockquote.callout-fold {
+  display: flex;
+  align-items: center;
+  padding-inline-end: var(--size-4-2);
 }
-.boxHeart:before {
-  content: "\f004";
+blockquote.callout-fold::after {
+  content: "\200B";
 }
-.boxInfo:before {
-  content: "\f05a";
-  color: #00529b;
+blockquote.callout-fold .svg-icon {
+  transition: transform 100ms ease-in-out;
 }
-.boxPlus:before {
-  content: "\f067";
-}
-.boxStar:before {
-  content: "\f005";
-}
-.boxWarning:before {
-  content: "\f06a";
-}
-
-/* Set colors */
-
-.boxBell {
-  background-color: #f1f500a4;
-}
-
-.boxWarning {
-  color: #fff;
-  background-color: rgba(217, 83, 79, 0.9);
-}
-
-.boxCheck {
-  background-color: #dff2bf;
-}
-
-.boxInfo {
-  background-color: #bde5f8;
+blockquote.callout-fold.is-collapsed .svg-icon {
+  transform: rotate(calc(var(--direction) * -1 * 90deg));
 }
