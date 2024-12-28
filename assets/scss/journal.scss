@@ -650,6 +650,7 @@ a {
             background: $front-container-background;
           }
           .post-item-info-wrapper {
+            width: 100%;
             flex-grow: 1;
 
             @media screen and (max-width: $single-column-max-width) {
